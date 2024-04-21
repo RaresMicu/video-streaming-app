@@ -1,0 +1,48 @@
+.createDocumentary{
+    flex: 4;
+    margin-left: 50px;
+
+    .createDocumentaryForm{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+
+        .createDocumentaryItem{
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+            margin-right: 20px;
+
+            .createDocumentarySelect{
+                height: 40px;
+                border-radius: 5px;
+            }
+        }
+
+        .createDocumentaryItem>label{
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            color: gray;
+        }
+
+        .createDocumentaryItem>input{
+            height: 20px;
+            padding: 10px;
+            border: 1 px solid gray;
+            border-radius: 5px;
+        }
+    }
+    .createDocumentaryButton{
+        width: 200px;
+        border: none;
+        background-color: rgb(39, 172, 81);
+        color: white;
+        padding: 7px 10px;
+        font-weight: 600;
+        border-radius: 10px;
+        margin-top: 30px;
+        cursor: pointer;
+    }
+}

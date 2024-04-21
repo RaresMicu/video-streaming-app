@@ -1,0 +1,62 @@
+.adminnavbar{
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    .adminWrapper{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+        padding: 0px 20px;
+
+    }
+
+    .left{
+        .logo{
+            height: 75px;
+            cursor: pointer;
+        }
+    }
+
+    .right{
+        display: flex;
+        align-items: center;
+
+        .iconContainer{
+            position: relative;
+            cursor: pointer;
+            margin-right: 10px;
+
+            .notification{
+                width: 30px;
+                height: 30px;
+            }
+
+            .iconBadge{
+                width: 15px;
+                height: 15px;
+                text-align: center;
+                position: absolute;
+                top: -2px;
+                right: 0px;
+                background-color: red;
+                color: white;
+                border-radius: 50%;
+                font-size: 14px;
+            }
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+
+    }
+}

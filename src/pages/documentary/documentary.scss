@@ -1,0 +1,134 @@
+.documentary{
+    flex: 4;
+    padding: 20px;
+
+    .documentaryTitleContainer{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .documentaryAddButton{
+            width: 80px;
+            border: none;
+            padding: 5px;
+            background-color: rgb(0, 128, 128);
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+    }
+
+
+
+
+    .documentaryTop{
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        margin: 20px;
+        -webkit-box-shadow: 0px 0 px 15px -10px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+
+        .documentaryInfoTop{
+            display: flex;
+            align-items: center;
+
+            .documentaryImg{
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-right: 20px;
+            }
+
+            .documentaryName{
+                font-weight: 600;
+            }
+        }
+
+        .documentaryInfoBottom{
+            margin-top: 10px;
+
+            .documentaryInfoItem{
+                width: 150px;
+                display: flex;
+                justify-content:space-between;
+                font-weight:bold;
+            }
+
+            .documentaryInfoValue{
+                font-weight: 300;
+            }
+        }
+       
+    }
+
+
+    .documentaryBottom{
+    display: flex;
+    padding: 20px;
+    margin: 20px;
+    -webkit-box-shadow: 0px 0 px 15px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+
+
+        .documentaryForm{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            .documentaryFormLeft{
+                display: flex;
+                flex-direction: column;
+            }
+
+            .documentaryFormLeft>label{
+                margin-bottom: 10px;
+                color: gray;
+            }
+
+            .documentaryFormLeft>input{
+                margin-bottom: 10px;
+                border: none;
+                padding: 5px;
+                border-bottom: 1px solid gray;
+            }
+
+            .documentaryFormLeft>select{
+                margin-bottom: 10px;
+            }
+
+
+            .documentaryFormRight{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+
+                .documentaryUpload{
+                    display: flex;
+                    align-items: center;
+
+                    .documentaryUploadImage{
+                        width: 100px;
+                        height: 100px;
+                        border-radius: 10px;
+                        object-fit: cover;
+                        margin-right: 20px;
+                        margin-bottom: 32px;
+                    }
+                }
+
+                .documentaryButton{
+                    width: 200px;
+                    border: none;
+                    border-radius: 5px;
+                    padding: 5px;
+                    background-color: rgb(0, 139, 30);
+                    columns: 600;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

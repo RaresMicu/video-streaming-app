@@ -1,0 +1,46 @@
+.createuser{
+    flex: 4;
+    margin-left: 50px;
+    .createuserForm{
+        display: flex;
+        flex-wrap: wrap;
+
+        .createuserItem{
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+            margin-right: 20px;
+
+            .createuserSelect{
+                height: 40px;
+                border-radius: 5px;
+            }
+        }
+
+        .createuserItem>label{
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            color: gray;
+        }
+
+        .createuserItem>input{
+            height: 20px;
+            padding: 10px;
+            border: 1 px solid gray;
+            border-radius: 5px;
+        }
+    }
+    .createuserButton{
+        width: 200px;
+        border: none;
+        background-color: rgb(39, 172, 81);
+        color: white;
+        padding: 7px 10px;
+        font-weight: 600;
+        border-radius: 10px;
+        margin-top: 30px;
+        cursor: pointer;
+    }
+}
