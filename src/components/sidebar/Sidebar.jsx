@@ -44,6 +44,15 @@ function Sidebar() {
                 Documentaries
               </li>
             </Link>
+            <Link
+              to="/admin/lists"
+              style={{ color: "inherit", textDecoration: "inherit" }}
+            >
+              <li className={`sidebarListItem`}>
+                <LocalMoviesIcon className="sidebarIcon" />
+                Lists
+              </li>
+            </Link>
           </ul>
         </div>
       </div>

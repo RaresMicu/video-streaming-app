@@ -1,3 +1,5 @@
+@import "../../app.scss";
+
 .navbar {
   color: white;
   width: 100vw;
@@ -28,11 +30,32 @@
       .logo-picture {
         height: 75px;
         margin-right: 40px;
+        
+        @include phone{
+          height: 55px;
+        }
       }
 
       span {
         margin-right: 20px;
+        width: 58px;
         cursor: pointer;
+
+
+        @include tablet{
+          display: none;
+        }
+
+        &.mainLinks{
+          @include tablet{
+            display: block;
+          }
+
+
+          @include phone{
+            font-size: 16px;
+          }
+        }
       }
     }
 
@@ -40,12 +63,17 @@
       display: flex;
       align-items: center;
 
+
       .profile-picture {
         height: 40px;
         width: 40px;
         border-radius: 5px;
         object-fit: cover;
         cursor: pointer;
+
+        @include phone{
+          display: none;
+        }
       }
 
       .icon {
@@ -60,11 +88,17 @@
           display: none;
           background-color: rgb(56, 154, 103);
           border-radius: 5px;
+
         }
 
         span {
           padding: 12px;
           cursor: pointer;
+
+          
+          @include phone{
+           padding: 6px;
+         }
         }
 
         &:hover {
@@ -72,6 +106,11 @@
             display: flex;
             flex-direction: column;
             position: absolute;
+
+            @include phone{
+              bottom: -12px;
+              font-size: 12px;
+           }
           }
         }
       }

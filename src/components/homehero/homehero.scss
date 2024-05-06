@@ -1,3 +1,5 @@
+@import "../../app.scss";
+
 .homehero {
   height: fit-content;
   position: relative;
@@ -17,13 +19,23 @@
     bottom: 50px;
     color: white;
 
+
     h1 {
       font-size: 48px;
-      width: 60vh;
+      width: 60vw;
+
+      @include phone {
+              font-size: 42px;
+      }
+
     }
 
     .desc {
       margin: 20px 0px;
+
+      @include phone {
+        width: 60vw;
+      }
     }
 
     .buttons {

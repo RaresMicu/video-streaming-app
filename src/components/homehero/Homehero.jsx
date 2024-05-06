@@ -1,20 +1,43 @@
 import "./homehero.scss";
-import profile from "../../assets/images/profile1.jpg";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-function Homehero() {
+function Homehero({ type }) {
+  const [content, setContent] = useState({});
+
+  useEffect(() => {
+    const getRandomContent = async () => {
+      try {
+        const res = await axios.get(
+          `/documentaries/random${type ? "?type=" + type : ""}`,
+          {
+            headers: {
+              token: `Bearer ${
+                JSON.parse(localStorage.getItem("user")).accessToken
+              }`,
+            },
+          }
+        );
+        setContent(res.data[0]);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getRandomContent();
+  }, [type]);
+
   return (
     <div className="homehero">
-      <img src={profile} alt="" className="featured-picture"></img>
+      <img
+        src={content.img !== null ? content.img : ""}
+        alt=""
+        className="featured-picture"
+      ></img>
       <div className="info">
-        <h1>Lorem ipsum dolor</h1>
-        <span className="desc">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
-          laudantium nemo esse quas doloribus, animi impedit placeat iure culpa
-          perspiciatis libero cupiditate minima dolores aut inventore? Nisi
-          maiores iure laudantium.
-        </span>
+        <h1>{content.title}</h1>
+        <span className="desc">{content.desc}</span>
         <div className="buttons">
           <button className="play">
             <PlayArrowIcon></PlayArrowIcon>

@@ -4,5 +4,27 @@
 
     .homeWidgets{
         display: flex;
+
+        .centerWidget{
+            width: 100%;
+            height: fit-content;
+            display: flex;
+            justify-content: center;
+            margin-top: 100px;
+          
+        
+            .widgetUsers{
+                width: fit-content;
+                -webkit-box-shadow: 0px 0 px 15px -10px rgba(0, 0, 0, 0.75);
+                box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+                padding: 20px;
+                margin-right: 20px;
+            
+                .widgetUsersTitle{
+                    font-size: 40px;
+                    font-weight: 600;
+                }
+            }
+        }
     }
 }

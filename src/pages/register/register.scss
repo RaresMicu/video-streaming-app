@@ -9,15 +9,21 @@
     
     
     .top1{
+        height: fit-content;
+        position: relative;
+        z-index: 1;
+
         .wrapper1{
             padding: 20px 50px;
             display: flex;
             align-items: center;
             justify-content: space-between;
 
+
             .logo1{
                 background-color: rgb(65, 153, 48, 0.5);
                 height: 100px;
+                cursor: pointer;
             }
 
             .login1 {

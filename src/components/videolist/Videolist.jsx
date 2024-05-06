@@ -4,12 +4,13 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ListItem from "../listItem/ListItem";
 import { useRef, useState, useEffect } from "react";
 
-function Videolist() {
+function Videolist({ list }) {
   const [slideNumber, setSlideNumber] = useState(0);
   const [lastClickTime, setLastClickTime] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(0);
   const [isMovedLeft, setIsMovedLeft] = useState(false);
   const [isMovedRight, setIsMovedRight] = useState(true);
+
   useEffect(() => {
     const itemsPerPage = Math.floor(window.innerWidth / 233);
     setItemsPerPage(itemsPerPage);
@@ -53,28 +54,9 @@ function Videolist() {
     }
   };
 
-  const list = [
-    {
-      index: 0,
-      year: 2020,
-      duration: "1h30m",
-      description:
-        "      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum magnam corrupti, aut commodi molestiae veritatis?",
-    },
-    { index: 1, year: 2021, duration: "1h45m", description: "Description 2" },
-    { index: 2, year: 2022, duration: "2h15m", description: "Description 3" },
-    { index: 3, year: 2020, duration: "1h30m", description: "Description 1" },
-    { index: 4, year: 2021, duration: "1h45m", description: "Description 2" },
-    { index: 5, year: 2022, duration: "2h15m", description: "Description 3" },
-    { index: 6, year: 2020, duration: "1h30m", description: "Description 1" },
-    { index: 7, year: 2021, duration: "1h45m", description: "Description 2" },
-    { index: 8, year: 2022, duration: "2h15m", description: "Description 3" },
-    { index: 9, year: 2020, duration: "1h30m", description: "Description 10" },
-  ];
-
   return (
     <div className="videolist">
-      <span className="listTitle">Long Documentaries</span>
+      <span className="listTitle">{list.title}</span>
       <div className="wrapper">
         <ArrowBackIosNewIcon
           className="sliderArrow left"
@@ -82,13 +64,8 @@ function Videolist() {
           style={{ display: !isMovedLeft && "none" }}
         />
         <div className="container" ref={listRef}>
-          {list.map((item) => (
-            <ListItem
-              index={item.index}
-              year={item.year}
-              duration={item.duration}
-              description={item.description}
-            />
+          {list.content.map((item, i) => (
+            <ListItem key={i} index={i} item={item} />
           ))}
         </div>
         <ArrowForwardIosIcon

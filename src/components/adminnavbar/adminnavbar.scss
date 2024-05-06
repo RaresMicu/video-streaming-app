@@ -49,14 +49,33 @@
                 font-size: 14px;
             }
         }
+        .profile{
+            margin-right: 20px;
+            .avatar {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                cursor: pointer;
+                object-fit: cover;
+            }
 
-        .avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
+            .options {
+                display: none;
+                background-color: rgb(56, 154, 103);
+                border-radius: 5px;
+              }
+
+              &:hover {
+                .options {
+                  padding: 4px;
+                  display: flex;
+                  flex-direction: column;
+                  position: absolute;
+                  cursor: pointer;
+                }
+              } 
+              
         }
-
 
     }
 }

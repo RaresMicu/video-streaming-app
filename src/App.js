@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./app.scss";
 import Home from "./pages/home/Home.jsx";
 import Stream from "./components/Stream/Stream";
@@ -17,17 +17,47 @@ import Documentary from "./pages/documentary/Documentary.jsx";
 import DocumentaryList from "./pages/documentaryList/DocumentaryList.jsx";
 import CreateDocumentary from "./pages/createDocumentary/CreateDocumentary.jsx";
 import CreateUser from "./pages/createUser/CreateUser.jsx";
+import { AuthContext } from "./context/authContext/AuthContext";
+import ListWithList from "./pages/listWithLists/ListWithList.jsx";
+import List from "./pages/list/List.jsx";
+import CreateList from "./pages/createList/CreateList.jsx";
 
 const App = () => {
-  const user = true;
+  const { user } = useContext(AuthContext);
 
   return (
     <Router>
       <Routes>
         <Route
-          path="/"
-          element={user ? <Home /> : <Navigate to="/register" replace />}
+          path={"/admin"}
+          element={
+            user ? (
+              user.isAdmin === true ? (
+                <AdminHome />
+              ) : (
+                <Navigate to="/" replace />
+              )
+            ) : (
+              <Navigate to="/register" replace />
+            )
+          }
         />
+
+        <Route
+          path="/"
+          element={
+            user ? (
+              user.isAdmin === true ? (
+                <Navigate to="/admin" replace />
+              ) : (
+                <Home />
+              )
+            ) : (
+              <Navigate to="/register" replace />
+            )
+          }
+        />
+
         <Route
           path="/login"
           element={!user ? <Login /> : <Navigate to="/" replace />}
@@ -37,16 +67,23 @@ const App = () => {
           element={!user ? <Register /> : <Navigate to="/" replace />}
         />
 
-        {user && (
+        {user && !user.isAdmin && (
           <>
+            <Route path="/" element={<Home/>}></Route>
             <Route path="/longs" element={<Home type="long" />} />
             <Route path="/shorts" element={<Home type="short" />} />
-            <Route path="/admin" element={<AdminHome />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/video" element={<Stream />} />
+          </>
+        )}
+
+        {user && user.isAdmin && (
+          <>
+            <Route path="/admin" element={<AdminHome />} />
             <Route path="/admin/users" element={<UserList />}></Route>
             <Route path="/admin/users/user/:idUser" element={<User />}></Route>
+            <Route path="/admin/createUser" element={<CreateUser />}></Route>
             <Route
               path="/admin/documentaries"
               element={<DocumentaryList />}
@@ -59,7 +96,9 @@ const App = () => {
               path="/admin/createDocumentary"
               element={<CreateDocumentary />}
             ></Route>
-            <Route path="/admin/createUser" element={<CreateUser />}></Route>
+            <Route path="/admin/lists" element={<ListWithList />}></Route>
+            <Route path="/admin/lists/list/:idList" element={<List />}></Route>
+            <Route path="/admin/createList" element={<CreateList />}></Route>
           </>
         )}
       </Routes>

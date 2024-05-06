@@ -55,11 +55,16 @@
                 display: flex;
                 justify-content:space-between;
                 font-weight:bold;
+
+
+                .documentaryInfoValue{
+                    font-weight: 300;
+                    margin-left: 20px;
+                }
+
             }
 
-            .documentaryInfoValue{
-                font-weight: 300;
-            }
+
         }
        
     }

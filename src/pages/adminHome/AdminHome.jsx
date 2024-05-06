@@ -1,4 +1,3 @@
-import WidgetUsers from "../../components/widgetUsers/WidgetUsers";
 import AdminMode from "../adminMode/AdminMode";
 import "./adminhome.scss";
 
@@ -7,7 +6,11 @@ function AdminHome() {
     <AdminMode>
       <div className="adminhome">
         <div className="homeWidgets">
-          <WidgetUsers />
+          <div className="centerWidget">
+            <div className="widgetUsers">
+              <span className="widgetUsersTitle">Welcome, Admin!</span>
+            </div>
+          </div>
         </div>
       </div>
     </AdminMode>

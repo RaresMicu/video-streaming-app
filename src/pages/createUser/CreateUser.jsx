@@ -1,36 +1,80 @@
 import AdminMode from "../adminMode/AdminMode";
 import "./createUser.scss";
+import { useNavigate } from "react-router-dom";
+import { useState, useContext } from "react";
+import { createUser } from "../../context/userContext/apiCalls";
+import { UserContext } from "../../context/userContext/UserContext";
 
 function CreateUser() {
+  const navigate = useNavigate();
+  const [user, setUser] = useState({});
+
+  const { dispatch } = useContext(UserContext);
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setUser({ ...user, [e.target.name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (user.email && user.username && user.isAdmin && user.password) {
+      createUser(user, dispatch);
+      navigate(-2);
+    } else {
+      alert("Please fill in all the fields");
+      return;
+    }
+  };
+
   return (
     <AdminMode>
       <div className="createuser">
         <h1 className="createuserTitle">Create User</h1>
         <form className="createuserForm">
           <div className="createuserItem">
-            <label htmlFor="">Username</label>
-            <input type="text" placeholder="zalmoxis04" />
+            <label>Username</label>
+            <input
+              type="text"
+              placeholder="username"
+              name="username"
+              onChange={handleChange}
+            />
           </div>
           <div className="createuserItem">
-            <label htmlFor="">Full Name</label>
-            <input type="text" placeholder="Zalmoxis Ion" />
+            <label>Email</label>
+            <input
+              type="email"
+              placeholder="email"
+              name="email"
+              onChange={handleChange}
+            />
           </div>
           <div className="createuserItem">
-            <label htmlFor="">Email</label>
-            <input type="email" placeholder="zalmoxis04@gmail.com" />
+            <label>Password</label>
+            <input
+              type="password"
+              placeholder="password"
+              name="password"
+              onChange={handleChange}
+            />
           </div>
           <div className="createuserItem">
-            <label htmlFor="">Password</label>
-            <input type="password" placeholder="password" />
-          </div>
-          <div className="createuserItem">
-            <label htmlFor="">Active</label>
-            <select className="createuserSelect" name="active" id="active">
-              <option value="yes">Yes</option>
+            <label>isAdmin</label>
+            <select
+              className="createuserSelect"
+              name="isAdmin"
+              id="isAdmin"
+              onChange={handleChange}
+            >
+              <option>-</option>
               <option value="no">No</option>
+              <option value="yes">Yes</option>
             </select>
           </div>
-          <button className="createuserButton">Create</button>
+          <button className="createuserButton" onClick={handleSubmit}>
+            Create
+          </button>
         </form>
       </div>
     </AdminMode>

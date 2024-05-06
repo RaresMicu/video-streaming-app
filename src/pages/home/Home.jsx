@@ -7,13 +7,25 @@ import { useEffect, useState } from "react";
 
 const Home = ({ type }) => {
   const [lists, setLists] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setLoading(false);
+  //   }, 2000);
+  // }, []);
 
   useEffect(() => {
     const getRandomLists = async () => {
       try {
-        const res = await axios.get(`lists${type ? "?type=" + type : ""}`);
+        const res = await axios.get(`lists${type ? "?type=" + type : ""}`, {
+          headers: {
+            token: `Bearer ${
+              JSON.parse(localStorage.getItem("user")).accessToken
+            }`,
+          },
+        });
         setLists(res.data);
-        console.log(res);
       } catch (err) {
         console.log(err);
       }
@@ -25,10 +37,11 @@ const Home = ({ type }) => {
     <div className="home">
       <NavBar />
       <Featured type={type} />
-      {/* <Videolist /> */}
-      {/* <Videolist />
-      <Videolist />
-      <Videolist /> */}
+      {loading ? ( // Conditionally render loading page or content
+        <div>Loading...</div>
+      ) : (
+        lists.map((list) => <Videolist list={list} key={list._id} />)
+      )}
     </div>
   );
 };

@@ -1,15 +1,27 @@
 import "./stream.scss";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import video1 from "../../assets/trailers/trailer1.mp4";
+import { useLocation } from "react-router";
+import { Link } from "react-router-dom";
 
 function Stream() {
+  const location = useLocation();
+  const documentary = location.state.documentary;
+
   return (
     <div className="stream">
-      <div className="back">
-        <ArrowBackIcon />
-        Home
-      </div>
-      <video className="video" autoPlay progress controls src={video1}></video>
+      <Link to="/">
+        <div className="back">
+          <ArrowBackIcon />
+          Home
+        </div>
+      </Link>
+      <video
+        className="video"
+        autoPlay
+        progress="true"
+        controls
+        src={documentary.video}
+      ></video>
     </div>
   );
 }
