@@ -42,7 +42,7 @@ function AdminHome() {
           </div>
         </div>
         <video
-          src="https://firebasestorage.googleapis.com/v0/b/gaiasight-b8a92.appspot.com/o/Seed%2FSeed.mp4?alt=media&token=11f63809-b0c9-412d-bfff-eddb8ef9cac4"
+          src=""
           className="video"
           width={500}
           height={300}
