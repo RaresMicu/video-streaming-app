@@ -18,11 +18,10 @@ function ListItem({ index, item }) {
     genre: "",
   });
 
-
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 3300);
+    }, 3000);
   }, []);
 
   useEffect(() => {
@@ -36,7 +35,7 @@ function ListItem({ index, item }) {
           },
         });
         setDocumentary(res.data);
-        console.log(res.data);
+        // console.log(res.data);
         // setLoading(false);
       } catch (err) {
         console.log(err);

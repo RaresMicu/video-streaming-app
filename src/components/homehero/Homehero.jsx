@@ -3,6 +3,7 @@ import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function Homehero({ type }) {
   const [content, setContent] = useState({});
@@ -39,10 +40,13 @@ function Homehero({ type }) {
         <h1>{content.title}</h1>
         <span className="desc">{content.desc}</span>
         <div className="buttons">
-          <button className="play">
-            <PlayArrowIcon></PlayArrowIcon>
-            <span>Play</span>
-          </button>
+          <Link to={`/video`} state={{ documentary: content }} className="link">
+            {" "}
+            <button className="play">
+              <PlayArrowIcon></PlayArrowIcon>
+              <span>Play</span>
+            </button>
+          </Link>
           <button className="more">
             <InfoOutlinedIcon></InfoOutlinedIcon>
             <span>Info</span>
